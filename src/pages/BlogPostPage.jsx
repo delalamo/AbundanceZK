@@ -1,10 +1,10 @@
 // src/pages/BlogPostPage.jsx
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { findPostById } from '../blog-posts/posts'; // Import the helper function and data
+import { findPostById } from '../blog-posts/posts'; // Import the helper function
 
 function BlogPostPage() {
-  // Get the 'postId' parameter from the URL (defined in App.jsx route)
+  // Get the 'postId' parameter from the URL
   const { postId } = useParams();
   const post = findPostById(postId); // Find the post data using the ID
 
@@ -18,15 +18,14 @@ function BlogPostPage() {
     );
   }
 
-  // WARNING: Only use dangerouslySetInnerHTML if you trust the source of 'post.content'.
-  // If posts were user-generated or from less trusted sources, you'd need to sanitize
-  // the HTML to prevent XSS attacks. For Markdown parsing, libraries often handle this.
+  // Render the post content directly as JSX
+  // This assumes post.content is now a React element/JSX
   return (
     <article>
       <h1>{post.title}</h1>
       <p className="post-meta">Published on: {post.date}</p>
-      {/* Render the HTML content string */}
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      {/* Render the content directly */}
+      <div>{post.content}</div> {/* <-- CHANGE HERE */}
       <hr style={{ margin: '2rem 0' }}/>
       <Link to="/"> &laquo; Back to all posts</Link>
     </article>
