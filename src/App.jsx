@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout'; // Import the Layout component
+import HomePage from './pages/HomePage';
+import BlogPostPage from './pages/BlogPostPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Layout> {/* Wrap all routes/pages in the Layout */}
+      <Routes>
+        {/* Route for the homepage */}
+        <Route path="/" element={<HomePage />} />
+
+        {/* Route for individual blog posts */}
+        {/* ':postId' is a URL parameter that we can access in BlogPostPage */}
+        <Route path="/post/:postId" element={<BlogPostPage />} />
+
+        {/* Route for the about page */}
+        <Route path="/about" element={<AboutPage />} />
+
+        {/* Optional: Add a catch-all 404 route */}
+        <Route path="*" element={<div><h2>404 - Page Not Found</h2></div>} />
+      </Routes>
+    </Layout>
+  );
 }
 
-export default App
+export default App;
