@@ -8,7 +8,9 @@ import CVPage from './pages/CVPage';
 
 function App() {
   return (
-    <Layout> {/* Wrap all routes/pages in the Layout */}
+    <Layout>
+      {' '}
+      {/* Wrap all routes/pages in the Layout */}
       <Routes>
         {/* Route for the homepage */}
         <Route path="/" element={<HomePage />} />
@@ -21,7 +23,14 @@ function App() {
         <Route path="/CV" element={<CVPage />} />
 
         {/* Optional: Add a catch-all 404 route */}
-        <Route path="*" element={<div><h2>404 - Page Not Found</h2></div>} />
+        <Route
+          path="*"
+          element={
+            <div>
+              <h2>404 - Page Not Found</h2>
+            </div>
+          }
+        />
       </Routes>
     </Layout>
   );

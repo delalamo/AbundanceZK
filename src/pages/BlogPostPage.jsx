@@ -26,7 +26,7 @@ function BlogPostPage() {
       <p className="post-meta">Published on: {post.date}</p>
       {/* Render the content directly */}
       <div>{post.content}</div> {/* <-- CHANGE HERE */}
-      <hr style={{ margin: '2rem 0' }}/>
+      <hr style={{ margin: '2rem 0' }} />
       <Link to="/"> &laquo; Back to all posts</Link>
     </article>
   );
