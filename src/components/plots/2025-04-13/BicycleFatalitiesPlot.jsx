@@ -12,8 +12,8 @@ const Tooltip = ({ x, y, data, isVisible, keys, colorScale }) => {
                 <motion.div
                     style={{
                         position: 'absolute',
-                        left: x, // Position is set based on state
-                        top: y,  // Position is set based on state
+                        left: x,
+                        top: y,
                         backgroundColor: 'rgba(0, 0, 0, 0.8)',
                         color: 'white',
                         padding: '0.75rem',
@@ -74,7 +74,7 @@ const BicycleFatalitiesPlot = () => {
     const [error, setError] = useState(null);
 
     // Refs for DOM elements
-    const svgRef = useRef(null);
+    const svgRef = useRef(null); // Ref for the SVG element itself
     const containerRef = useRef(null); // Ref for the main container div
 
     // Chart dimensions and configuration
@@ -117,7 +117,6 @@ const BicycleFatalitiesPlot = () => {
                 percentageKeys.forEach(key => {
                     const rawValue = d[key] ? String(d[key]).trim() : null;
                     row[key] = rawValue === null || rawValue === '' ? NaN : Number(rawValue);
-                    // Don't invalidate row based on missing percentage
                 });
                 const rawTotal = d.Total ? String(d.Total).trim().replace(/,/g, '') : null;
                 row.Total = rawTotal === null || rawTotal === '' ? NaN : Number(rawTotal);
@@ -146,7 +145,7 @@ const BicycleFatalitiesPlot = () => {
 
     // --- D3 Rendering Effect ---
     useEffect(() => {
-        const container = containerRef.current; // Get the container element
+        const container = containerRef.current;
         if (!container) return;
         const containerWidth = container.offsetWidth;
         if (!containerWidth) return;
@@ -187,7 +186,7 @@ const BicycleFatalitiesPlot = () => {
         chartGroup.append('g').attr('class', 'y-axis').call(d3.axisLeft(y));
 
         // --- Draw Text Elements (Titles, Labels, Source, Legend) ---
-        // ... (text elements and legend remain the same as previous version) ...
+        // ... (text elements and legend remain the same) ...
         chartGroup.append('text').attr('class', 'main-title').attr('x', width / 2).attr('y', 0 - (margin.top / 2) - 5).attr('text-anchor', 'middle').style('font-size', '1.2rem').style('font-weight', 'bold').text('Number of Annual Bicyclist Fatalities');
         chartGroup.append('text').attr('class', 'subtitle').attr('x', width / 2).attr('y', 0 - (margin.top / 2) + 15).attr('text-anchor', 'middle').style('font-size', '0.9rem').style('fill', '#444').text('Number of recorded bicyclists killed in fatal crashes from 1975 to 2022');
         chartGroup.append('text').attr('class', 'y-label').attr('transform', 'rotate(-90)').attr('y', 0 - margin.left).attr('x', 0 - (height / 2)).attr('dy', '1em').style('text-anchor', 'middle').text('Total Bicyclist Deaths').style('font-size', '0.9rem').style('fill', '#333');
@@ -238,11 +237,10 @@ const BicycleFatalitiesPlot = () => {
                 .attr('fill', 'none')
                 .attr('pointer-events', 'all')
                 .on('mousemove', (event) => {
-                    // *** USE d3.pointer relative to the container for tooltip positioning ***
-                    const [pointerXRelChart, ] = d3.pointer(event); // Get x relative to chartGroup for bisector
-                    const [pointerXRelContainer, pointerYRelContainer] = d3.pointer(event, container); // Get x,y relative to main container
+                    const [pointerXRelChart, ] = d3.pointer(event);
+                    const [pointerXRelContainer, pointerYRelContainer] = d3.pointer(event, container); // Use container ref
 
-                    const yearValue = x.invert(pointerXRelChart); // Invert based on chartGroup x
+                    const yearValue = x.invert(pointerXRelChart);
                     const index = bisector(data, yearValue, 1);
                     const d0 = data[index - 1];
                     const d1 = data[index];
@@ -250,36 +248,38 @@ const BicycleFatalitiesPlot = () => {
 
                     if (closestData) {
                         setTooltipData(closestData);
-                        // *** Use pointer coordinates relative to container for tooltip state ***
                         const tooltipOffsetX = 15;
                         const tooltipOffsetY = -35;
-                        setTooltipPosition({ x: pointerXRelContainer + tooltipOffsetX, y: pointerYRelContainer + tooltipOffsetY });
-
-                         // Position hover line based on chart scale
+                        setTooltipPosition({ x: pointerXRelContainer + tooltipOffsetX, y: pointerYRelContainer + tooltipOffsetY }); // Use container-relative coords
                          const hoverX = x(closestData.Year);
                          hoverLine.attr('x1', hoverX).attr('x2', hoverX).style('opacity', 1);
                     } else {
                         setTooltipData(null);
                         hoverLine.style('opacity', 0);
                     }
-                })
-                .on('mouseleave', () => {
-                    setTooltipData(null);
-                    hoverLine.style('opacity', 0);
                 });
+                // *** REMOVED .on('mouseleave', ...) from overlay rect ***
         }
 
     // Dependencies for the rendering effect
-    }, [data, isDataVisible, loading, error, containerHeight, stackKeys, colorScale]); // Removed margin
+    }, [data, isDataVisible, loading, error, containerHeight, stackKeys, colorScale]);
 
+
+    // --- Component Event Handlers ---
+    // Function to hide tooltip and line, called by container's onMouseLeave
+    const handleMouseLeaveContainer = useCallback(() => {
+        setTooltipData(null);
+        // Also hide the D3 hover line - select it within the SVG ref
+        d3.select(svgRef.current).select('.hover-line').style('opacity', 0);
+    }, []); // No dependencies needed
 
     // --- Component Render ---
     return (
-        // The main container div needs the ref and relative positioning
+        // Add onMouseLeave to the main container div
         <div
-            ref={containerRef} // Attach ref here
+            ref={containerRef}
             style={{
-                position: 'relative', // Crucial for absolute positioning of children (tooltip, overlays)
+                position: 'relative',
                 width: '100%',
                 maxWidth: '800px',
                 margin: '1em auto',
@@ -287,8 +287,9 @@ const BicycleFatalitiesPlot = () => {
                 cursor: !isDataVisible && !loading ? 'pointer' : 'default'
             }}
             onClick={handleLoadDataClick}
+            onMouseLeave={handleMouseLeaveContainer} // *** ADDED MOUSE LEAVE HANDLER ***
         >
-            {/* Overlays remain the same */}
+            {/* Overlays */}
             {loading && ( <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 5, background: 'rgba(255,255,255,0.8)', padding: '1em', borderRadius: '5px' }}> Loading Chart Data... </div> )}
             {error && ( <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'red', zIndex: 5, background: 'rgba(255,255,255,0.8)', padding: '1em', borderRadius: '5px', maxWidth: '90%' }}> Error: {error} </div> )}
             {!loading && !error && !isDataVisible && ( <div style={{ position: 'absolute', top: margin.top, left: margin.left, width: `calc(100% - ${margin.left + margin.right}px)`, height: `calc(100% - ${margin.top + margin.bottom}px)`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#999', backgroundColor: 'rgba(248, 248, 248, 0.7)', textAlign: 'center', borderRadius: '3px', zIndex: 4 }}> Click to load chart data </div> )}
@@ -297,7 +298,7 @@ const BicycleFatalitiesPlot = () => {
             {/* SVG container */}
             <svg ref={svgRef} style={{ display: 'block', width: '100%', height: 'auto', minHeight: containerHeight }} />
 
-            {/* Tooltip - Its position state (x, y) is now relative to the containerRef div */}
+            {/* Tooltip */}
             <Tooltip
                 x={tooltipPosition.x}
                 y={tooltipPosition.y}
