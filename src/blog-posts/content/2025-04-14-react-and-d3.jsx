@@ -7,7 +7,7 @@ export const post = {
   // Use a unique ID. Using the filename (without .js) is a common convention.
   id: '2025-04-14-testing-d3',
   title: 'Getting Started and Embedding a Chart',
-  date: '2025-04-13',
+  date: '2025-04-14',
   excerpt: 'This post shows how to embed a React component, like a D3 chart, directly into the content.',
   // Content is now JSX, not an HTML string
   content: (

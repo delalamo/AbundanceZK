@@ -1,10 +1,10 @@
-// src/pages/AboutPage.jsx
+// src/pages/CVPage.jsx
 import React from 'react';
 
-function AboutPage() {
+function CVPage() {
   return (
     <div>
-      <h1>About Me</h1>
+      <h1>CV</h1>
       <p>This is a simple blog built with React.</p>
       <p>It's a demonstration of a minimalist setup using Vite, React Router, and basic components.</p>
       {/* Add more about yourself here */}
@@ -12,4 +12,4 @@ function AboutPage() {
   );
 }
 
-export default AboutPage;
+export default CVPage;

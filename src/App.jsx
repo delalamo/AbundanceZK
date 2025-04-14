@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout'; // Import the Layout component
 import HomePage from './pages/HomePage';
 import BlogPostPage from './pages/BlogPostPage';
-import AboutPage from './pages/AboutPage';
+import CVPage from './pages/CVPage';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/post/:postId" element={<BlogPostPage />} />
 
         {/* Route for the about page */}
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/CV" element={<CVPage />} />
 
         {/* Optional: Add a catch-all 404 route */}
         <Route path="*" element={<div><h2>404 - Page Not Found</h2></div>} />

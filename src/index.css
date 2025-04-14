@@ -1,72 +1,4 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-/* src/index.css */
+/* Add/Update this in src/index.css */
 
 /* Basic Reset */
 * {
@@ -85,9 +17,12 @@ body {
 }
 
 #root {
-  max-width: 800px; /* Limit content width */
-  margin: 2rem auto; /* Center content */
-  padding: 0 1rem; /* Padding on smaller screens */
+  /* *** CHANGED max-width to width FOR CONSISTENT LAYOUT *** */
+  width: 800px; /* Fixed width for the main content area */
+  /* Ensure it doesn't exceed viewport width on small screens */
+  max-width: 95%; /* Allow it to shrink slightly on very narrow screens */
+  margin: 2rem auto; /* Center content horizontally */
+  padding: 1rem 2rem; /* Adjusted padding */
   background-color: #fff; /* White background for content area */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   min-height: calc(100vh - 4rem - 60px); /* Ensure content area pushes footer down */
@@ -123,24 +58,28 @@ a:hover {
 /* Basic Header/Footer Styling */
 header, footer {
   padding: 1rem 0;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid #eee;
+  /* Removed bottom border from header to avoid double lines */
+  /* border-bottom: 1px solid #eee; */
+}
+header {
+    margin-bottom: 1.5rem;
 }
 
 footer {
   border-top: 1px solid #eee;
-  border-bottom: none;
   margin-top: 2rem;
   text-align: center;
   font-size: 0.9em;
   color: #666;
-  position: relative; /* Or fixed/absolute depending on desired behavior */
-  bottom: 0;
-  width: 100%;
-  max-width: 800px; /* Match content width */
-  margin-left: auto;
-  margin-right: auto;
+  /* Footer positioning might need adjustment depending on exact layout needs */
+  /* position: relative; */
+  /* bottom: 0; */
+  /* width: 100%; */
+  /* max-width: 800px; /* Match content width */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
   padding-top: 1rem;
+  padding-bottom: 1rem; /* Added padding bottom */
 }
 
 nav ul {
@@ -150,22 +89,63 @@ nav ul {
   gap: 1rem; /* Spacing between nav items */
 }
 
-/* Blog Post Specific */
-.post-excerpt {
-  color: #555;
+/* Styles for the blog post preview title */
+.post-title {
+  margin-bottom: 0.5rem; /* Add some space below title */
+  /* Prevent long words/URLs from breaking layout */
+  overflow-wrap: break-word;
+  word-wrap: break-word; /* Older browsers */
+  /* Optional: Add hyphens for cleaner breaks (browser support varies) */
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  /* Ensure the title doesn't overflow its container (100% of parent) */
+  max-width: 100%;
 }
 
+.post-title a {
+  color: inherit; /* Make link color same as h2 */
+  text-decoration: none; /* Remove underline */
+}
+
+.post-title a:hover {
+  text-decoration: underline; /* Add underline on hover */
+  color: #0056b3; /* Optional: darken link color on hover */
+}
+
+/* Styles for post metadata (date, category) */
 .post-meta {
   font-size: 0.9em;
   color: #777;
   margin-bottom: 0.5rem;
 }
 
-.read-more-link {
-  font-weight: bold;
+/* Styles for the post excerpt */
+.post-excerpt {
+  margin-bottom: 1rem; /* Space below excerpt */
+  color: #555;
+  /* Wrapping rules for excerpt */
+  overflow-wrap: break-word;
+  word-wrap: break-word; /* Older browsers */
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  /* Ensure excerpt doesn't overflow its container */
+  max-width: 100%;
 }
 
-/* Minimal code block styling */
+/* Styles for the read-more link */
+.read-more-link {
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+.read-more-link:hover {
+   color: #0056b3;
+   text-decoration: underline;
+}
+
+/* Minimal code block styling (if used in posts) */
 pre {
   background-color: #eee;
   padding: 1em;
@@ -177,3 +157,21 @@ pre {
 code {
   font-family: 'Courier New', Courier, monospace;
 }
+
+/* Category Filter Button Styles */
+.category-filters button {
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+    transition: background-color 0.2s ease, border-color 0.2s ease; /* Smooth transition */
+}
+
+.category-filters button:hover {
+    background-color: #f0f0f0; /* Light grey on hover */
+}
+
+/* Style for the active button can be handled by inline styles in the component
+   or by adding/removing an 'active' class and defining .category-filters button.active here */
+

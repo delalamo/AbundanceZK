@@ -9,10 +9,16 @@ function BlogPostPreview({ post }) {
   }
 
   return (
+    // Applying bottom margin directly to the article for spacing
     <article style={{ marginBottom: '2rem', borderBottom: '1px solid #eee', paddingBottom: '1rem' }}>
-      <h2>
+      {/* Added className="post-title" to the h2 */}
+      <h2 className="post-title">
         <Link to={`/post/${post.id}`}>{post.title}</Link>
       </h2>
+      {/* Display category if it exists */}
+      {post.category && (
+         <p className="post-meta" style={{ fontStyle: 'italic' }}>Category: {post.category}</p>
+      )}
       <p className="post-meta">Published on: {post.date}</p>
       <p className="post-excerpt">{post.excerpt}</p>
       <Link to={`/post/${post.id}`} className="read-more-link">Read More &raquo;</Link>
