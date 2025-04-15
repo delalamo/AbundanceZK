@@ -4,13 +4,6 @@ Cell: +1 (617) 869 2425
 
 [Email](mailto:diego.delalamo@gmail.com), [Github](https://www.github.com/delalamo), [LinkedIn](https://www.linkedin.com/in/ddelalamo/), [Google Scholar](https://scholar.google.com/citations?user=uEf3WE4AAAAJ), [Bluesky](https://bsky.app/profile/ddelalamo.bsky.social)
 
-* [Skills and expertise](#skills-and-expertise)
-* [Work and Research Experience](#work-and-research-experience)
-* [Education](#education)
-* [Preprints and Publications](#preprints-and-publications)
-* [Presentations and Invited Talks](#presentations-and-invited-talks)
-* [Side projects](#side-projects)
-
 ## Skills and expertise
 **Computational structural biology**
 * Experience with generative AI methods for sequence- and structure-based design of proteins and antibodies (RF-diffusion, ProGen, inverse folding methods such as ProteinMPNN, ESM-IF, etc)
