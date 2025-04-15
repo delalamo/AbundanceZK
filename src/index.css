@@ -182,3 +182,27 @@ code {
 
 /* Style for the active button can be handled by inline styles in the component
    or by adding/removing an 'active' class and defining .category-filters button.active here */
+blockquote {
+  background-color: #f9f9f9; /* Optional: Light grey background */
+  border-left: 5px solid #ccc; /* Standard: Grey vertical line on the left */
+  margin-top: 1.5em;         /* Space above the quote */
+  margin-bottom: 1.5em;      /* Space below the quote */
+  margin-left: 20px;         /* Indentation from the left */
+  margin-right: 20px;        /* Optional: Indentation from the right */
+  padding: 0.8em 1em;        /* Padding inside the quote box (top/bottom, left/right) */
+  font-style: italic;        /* Optional: Italicize the text */
+  color: #333;              /* Optional: Slightly darker text color */
+}
+
+/* Optional: Ensure paragraphs inside the blockquote don't add extra bottom margin */
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* Optional: Style the citation/source if you add one */
+blockquote footer {
+  margin-top: 0.5em;
+  font-style: normal;
+  font-size: 0.9em;
+  text-align: right;
+}
