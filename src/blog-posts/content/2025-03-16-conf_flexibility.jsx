@@ -16,7 +16,7 @@ export const post = {
 
       {/* ... other paragraphs ... */}
 
-      <p>In general it seems that two types of neural networks have emerged to fill this gap. The first learns from simulation data for individual proteins and attempts to, in effect, learn fundamental properties about those systems by interpolating them (example <a href="https://delalamo.github.io/papers/2025/02/24/rmd.html">here</a>). The second try to be more generalist, and learn from huge quantities of structural and MD data.</p>
+      <p>In general it seems that two types of neural networks have emerged to fill this gap. The first learns from simulation data for individual proteins and attempts to, in effect, learn fundamental properties about those systems by interpolating them (example <a href="https://delalamo.xyz/post/2025-02-24-low-dim-md">here</a>). The second try to be more generalist, and learn from huge quantities of structural and MD data.</p>
 
       <p>Earlier this week a preprint was released that attempts to do the second <sup><a href="#fn7" id="fnref7">7</a></sup>. The method, sAMt, uses a variational autoencoder and an input structure as a template to model proteins heterogeneity from sequence alone.</p>
 
