@@ -6,7 +6,7 @@ export const post = {
   title: 'Antibody design de novo vs in vivo', // From frontmatter
   date: '2025-03-07', // From frontmatter date field
   category: 'Bio/ML', // As requested
-  excerpt: 'The Baker lab tackles <em>de novo</em> antibody design by narrowing the problem as much as possible.', // First paragraph
+  excerpt: 'The Baker lab tackles de novo antibody design by narrowing the problem as much as possible.', // First paragraph
   content: (
     <>
       <p>The Baker lab tackles <em>de novo</em> antibody design by narrowing the problem as much as possible.</p>
