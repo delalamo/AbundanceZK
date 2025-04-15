@@ -1,0 +1,50 @@
+/* src/pages/CVPage.css */
+
+.cv-content {
+  /* Add some padding or other container styles */
+  padding: 1rem 0;
+}
+
+.cv-content h1 {
+  font-size: 2.2rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cv-content h2 {
+  font-size: 1.6rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cv-content h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cv-content ul {
+  list-style: disc;
+  margin-left: 2rem; /* Indent lists */
+  margin-bottom: 1rem;
+}
+
+.cv-content li {
+  margin-bottom: 0.4rem;
+}
+
+.cv-content strong {
+ font-weight: 600; /* Make bold text slightly heavier */
+}
+
+.cv-content hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 2rem 0;
+}
+
+/* Add any other styles you need for paragraphs, links, code blocks etc. */
+
