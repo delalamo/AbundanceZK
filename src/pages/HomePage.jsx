@@ -68,6 +68,7 @@ function HomePage() {
       ) : (
         <p>No posts found in the "{selectedCategory}" category!</p> // Message if no posts match filter
       )}
+    <p><em>This site has been entirely built by vibe coding with Gemini 2.5 Pro</em></p>
     </div>
   );
 }
