@@ -206,3 +206,22 @@ blockquote footer {
   font-size: 0.9em;
   text-align: right;
 }
+
+/* Target unordered lists (bullet points) */
+ul {
+  /* Adjust this value to control the indentation amount */
+  padding-left: 40px;
+
+  /* It's often good practice to also add some vertical spacing */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* Optional: Add some space below each list item */
+ul li {
+  margin-bottom: 0.5em;
+}
+
+p {
+  text-align: justify;
+}
