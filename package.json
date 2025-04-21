@@ -11,6 +11,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "better-react-mathjax": "^2.3.0",
     "d3": "^7.9.0",
     "framer-motion": "^12.6.5",
     "react": "^19.0.0",
