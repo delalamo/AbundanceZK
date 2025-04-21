@@ -1,12 +1,11 @@
-// src/blog-posts/content/2025-02-20-structural-adaptors.jsx
 import React from 'react';
 
 export const post = {
-  id: '2025-02-20-structural-adaptors', // Generated ID
-  title: 'Structural adaptors for protein property prediction', // From frontmatter
-  date: '2025-02-20', // From frontmatter
-  category: 'Bio/ML', // As requested previously
-  excerpt: "It's always tricky to choose which protein neural network to use for fine-tuning tasks.", // First paragraph
+  id: '2025-02-20-structural-adaptors',
+  title: 'Structural adaptors for protein property prediction',
+  date: '2025-02-20',
+  category: 'Bio/ML',
+  excerpt: "It's always tricky to choose which protein neural network to use for fine-tuning tasks.",
   content: (
     <>
       <p>It's always tricky to choose which protein neural network to use for fine-tuning tasks.</p>

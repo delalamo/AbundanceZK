@@ -1,12 +1,11 @@
-// src/blog-posts/content/2025-02-24-low-dim-md.jsx
 import React from 'react';
 
 export const post = {
-  id: '2025-02-24-low-dim-md', // Generated ID
-  title: 'Low-dimensional representations of MD simulations', // From frontmatter
-  date: '2025-02-24', // From frontmatter
-  category: 'Bio/ML', // As requested previously
-  excerpt: 'Autoencoders, a type of neural network that learns how to optimally compress information, share some superficial resemblances to collective variables (CVs) used in MD simulations.', // First paragraph
+  id: '2025-02-24-low-dim-md',
+  title: 'Low-dimensional representations of MD simulations',
+  date: '2025-02-24',
+  category: 'Bio/ML',
+  excerpt: 'Autoencoders, a type of neural network that learns how to optimally compress information, share some superficial resemblances to collective variables (CVs) used in MD simulations.',
   content: (
     <>
       <p>Autoencoders, a type of neural network that learns how to optimally compress information, share some superficial resemblances to collective variables (CVs) used in MD simulations.</p>
@@ -16,7 +15,7 @@ export const post = {
       <img
         src="/assets/post_images/2025_02_24_A.png"
         alt="Example of collective variables in FGFR2"
-        width="700" // Consistent width
+        width="700"
         style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto' }}
       />
       <p style={{ textAlign: 'center', fontSize: '0.9em' }}>
@@ -28,14 +27,13 @@ export const post = {
        <img
         src="/assets/post_images/2025_02_24_B.png"
         alt="Figure from the encodermap paper showing how different conformations of a small protein are colocalized in the two-dimensional space of an autoencoder"
-        width="700" // Consistent width
+        width="700"
         style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto' }}
       />
       <p style={{ textAlign: 'center', fontSize: '0.9em' }}>
           <span style={{ fontStyle: 'italic' }}>Figure from </span><sup>[<a href="#fn2" id="fnref2_fig2">2</a>]</sup>
       </p>
 
-      {/* Interpreting [2-4] as [2], [3], [4] */}
       <p>In the context of MD, autoencoders are nothing new: they've been used to learn simplified representations of more complex, generally nonlinear systems<sup>[<a href="#fn2" id="fnref2">2</a>,<a href="#fn3" id="fnref3">3</a>,<a href="#fn4" id="fnref4">4</a>]</sup>. In one example from the Baker group, the protein folding neural network RosettaFold was fine-tuned with a 256-dimension autoencoder exclusively on the protein Ras<sup>[<a href="#fn5" id="fnref5">5</a>]</sup>. The method worked, in that it successfully sampled conformations unseen during training from this latent space, but at the cost of being uninterpretable given its huge latent space.</p>
 
       <p>I haven’t found an example that attempts to directly link the comprehensiveness of an autoencoder's latent representation to the interpretability of human-identified CVs until last week<sup>[<a href="#fn6" id="fnref6">6</a>]</sup>. In that preprint by authors Kolossváry & Coffey, an autoencoder was trained to both recover structure and organize its latent space to match human-picked CVs. This allowed the authors to both visualize the protein's free energy landscape and generate putative transition paths from the autoencoder's latent space. In practice, the approach reconstructed CRBN's conformational change to an impressive accuracy of 1.6 angstroms RMSD (compared to 1.2 angstroms when the link with hand-picked CVs was excluded).</p>
@@ -59,7 +57,6 @@ export const post = {
       <section className="footnotes">
         <hr />
         <ol>
-          {/* Note: Brackets removed from titles as requested */}
           <li id="fn1">Schönherr et al. <a href="https://doi.org/10.1073/pnas.2317756121">"Discovery of lirafugratinib (RLY-4008), a highly selective irreversible small-molecule inhibitor of FGFR2"</a> PNAS 2024 <a href="#fnref1" title="Jump back to footnote 1 in the text">↩</a></li>
           <li id="fn2">Lemke & Peter <a href="https://doi.org/10.1021/acs.jctc.8b00975">"EncoderMap: Dimensionality reduction and generation of molecule conformations"</a> JCTC 2019 <a href="#fnref2" title="Jump back to footnote 2 in the text">↩</a></li>
           <li id="fn3">Wehmeyer & Noé <a href="https://doi.org/10.1063/1.5011399">"Time-lagged autoencoders: Deep learning of slow collective variables for molecular kinetics"</a> J Chem Phys 2018 <a href="#fnref3" title="Jump back to footnote 3 in the text">↩</a></li>

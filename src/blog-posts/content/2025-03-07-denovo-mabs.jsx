@@ -1,12 +1,11 @@
-// src/blog-posts/content/2025-03-07-antibody-design.jsx
 import React from 'react';
 
 export const post = {
-  id: '2025-03-07-antibody-design', // Generated ID based on date and title
-  title: 'Antibody design de novo vs in vivo', // From frontmatter
-  date: '2025-03-07', // From frontmatter date field
-  category: 'Bio/ML', // As requested
-  excerpt: 'The Baker lab tackles de novo antibody design by narrowing the problem as much as possible.', // First paragraph
+  id: '2025-03-07-antibody-design',
+  title: 'Antibody design de novo vs in vivo',
+  date: '2025-03-07',
+  category: 'Bio/ML',
+  excerpt: 'The Baker lab tackles de novo antibody design by narrowing the problem as much as possible.',
   content: (
     <>
       <p>The Baker lab tackles <em>de novo</em> antibody design by narrowing the problem as much as possible.</p>
@@ -28,7 +27,6 @@ export const post = {
           <li id="fn4">Janeway et al, <a href="https://www.ncbi.nlm.nih.gov/books/NBK10775/">"Immunobiology: The Immune System in Health and Disease (5th edition)"</a> Garland Science 2001 <a href="#fnref4" title="Jump back to footnote 4 in the text">↩</a></li>
           <li id="fn5">Rees, <a href="https://doi.org/10.1080/19420862.2020.1729683">"Understanding the human antibody repertoire"</a> mAbs 2019 <a href="#fnref5" title="Jump back to footnote 5 in the text">↩</a></li>
           <li id="fn6">Wang et al, <a href="https://doi.org/10.1016/j.immuni.2022.03.019">"A large-scale systematic survey reveals recurring molecular features of public antibody responses to SARS-CoV-2"</a> Immunity 2022 <a href="#fnref6" title="Jump back to footnote 6 in the text">↩</a></li>
-          {/* Note: Corrected the malformed DOI link from the original markdown for footnote 7 */}
           <li id="fn7">Dauparas et al, <a href="https://doi.org/10.1126/science.add2187">“Robust deep learning-based protein sequence design using ProteinMPNN”</a> Science 2022 <a href="#fnref7" title="Jump back to footnote 7 in the text">↩</a></li>
           <li id="fn8">del Alamo et al, <a href="https://cdn-api.swapcard.com/public/files/caa2cb897fb3417c8ebb6aa210abf28d.pdf">"Antibody CDR design by ensembling inverse folding with protein language models"</a> PEGS Boston 2024 <a href="#fnref8" title="Jump back to footnote 8 in the text">↩</a></li>
           <li id="fn9">Chinnery et al, <a href="https://doi.org/10.1101/2024.03.26.586756">"Baselining the Buzz Trastuzumab-HER2 Affinity, and Beyond"</a> biorxiv 2024 <a href="#fnref9" title="Jump back to footnote 9 in the text">↩</a></li>

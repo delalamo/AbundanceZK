@@ -4,17 +4,13 @@ export const post = {
   id: '2025-03-14-conf-sampling',
   title: 'Training data for conformational flexibility prediction',
   date: '2025-03-14',
-  // Add the category field
   category: 'Bio/ML',
   excerpt: 'How much data from molecular dynamics simulations are needed to predict protein flexibility?',
   content: (
     <>
-      {/* This paragraph seems redundant with the title/excerpt, consider removing */}
       <p>How much data from molecular dynamics simulations are needed to predict protein flexibility?</p> 
 
       <p>The loadedness of the term "protein dynamics" complicates many attempts at figuring out what scientists want exactly when using modern AI/ML tools to predict protein structural heterogeneity. For the two to three years when AlphaFold2 and related methods were the state of the art, modeling dynamics mostly meant hacking these methods to yield some conformational heterogeneity<sup>[<a href="#fn1" id="fnref1">1</a>]</sup>. In the last year and a half or so, however, several high-quality neural networks have been released that tackle this problem more directly, at various levels of comprehensiveness: AlphaFlow<sup>[<a href="#fn2" id="fnref2">2</a>]</sup>, BioEmu<sup>[<a href="#fn3" id="fnref3">3</a>]</sup>, and Str2str<sup>[<a href="#fn4" id="fnref4">4</a>]</sup> being some examples.</p>
-
-      {/* ... other paragraphs ... */}
 
       <p>In general it seems that two types of neural networks have emerged to fill this gap. The first learns from simulation data for individual proteins and attempts to, in effect, learn fundamental properties about those systems by interpolating them (example <a href="https://delalamo.xyz/post/2025-02-24-low-dim-md">here</a>). The second try to be more generalist, and learn from huge quantities of structural and MD data.</p>
 
@@ -23,13 +19,12 @@ export const post = {
       <img
         src="/assets/post_images/2025_03_14_A.png"
         alt="Overview of the network from Janson et al"
-        width="700" // Keep your desired width (or use style={{ width: '600px' }})
+        width="700"
         style={{
-          display: 'block',    // Make the image a block element
-          marginLeft: 'auto',  // Auto margin on the left
-          marginRight: 'auto', // Auto margin on the right
-          height: 'auto'       // Maintain aspect ratio (optional if using width attribute)
-          // If using style for width: width: '600px'
+          display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          height: 'auto'
         }}
       />
 
@@ -43,9 +38,7 @@ export const post = {
 
       <p>This point has been raised in the past in verbal discussions on AlphaFlow. The motions captured in mdCATH are, in effect, Brownian motion, which is neither difficult nor interesting to predict. The value added by a neural network capable of predicting certain properties of protein dynamics would come from, at a minimum, a capacity to predict the weighted distribution of different conformations. Thus far, BioEmu is the closest to achieving this, although its accurate predictions are limited to conformational breadth and folded versus unfolded states. That said, there's no reason that further progress in this field will unlock this capability to learn from the short MD simulations we have available.</p>
 
-      {/* Note: Using 'class' might give a warning in React. Use 'className' instead. */}
       <section className="footnotes"> 
-        {/* Corrected hr tag */}
         <hr /> 
         <ol>
           <li id="fn1">Sala et al <a href="https://doi.org/10.1016/j.sbi.2023.102645">"Modeling conformational states of proteins with AlphaFold"</a> Curr Opin Struct Biol 2023 <a href="#fnref1" title="Jump back to footnote 1 in the text">↩</a></li>
