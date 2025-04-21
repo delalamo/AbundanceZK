@@ -17,7 +17,7 @@ export const post = {
 
         {/* Reverted LaTeX to original form (single \, $$ delimiters) */}
         
-        <p>Molecular dynamics simulations and ML-guided inverse folding (structure-based design) naturally complement each other. The former models the conformational landscape of a protein (<MathJax inline>{"\\(p(struct|seq)\\)"}</MathJax>), but is expensive as hell, while the latter quickly calculates the likelihood of a sequence given a static structure (<MathJax inline>{"\\(p(seq|struct\\)"}</MathJax>). It's natural to attempt to use the latter as a surrogate function that approximates the former using Bayes's theorem:</p>
+        <p>Molecular dynamics simulations and ML-guided inverse folding (structure-based design) naturally complement each other. The former models the conformational landscape of a protein <span style={{ whiteSpace: 'nowrap' }}>(<MathJax inline>{"\\(p(struct|seq)\\)"}</MathJax>)</span>, but is expensive as hell, while the latter quickly calculates the likelihood of a sequence given a static structure <span style={{ whiteSpace: 'nowrap' }}>(<MathJax inline>{"\\(p(seq|struct)\\)"}</MathJax>)</span>. It's natural to attempt to use the latter as a surrogate function that approximates the former using Bayes's theorem:</p>
 
         {/*
           Display math - kept original delimiters.
@@ -31,7 +31,7 @@ export const post = {
         {/* Reverted LaTeX & Footnotes */}
         <p>Plenty of precedent exists for calculating <MathJax inline>{"\\(p(seq)\\)"}</MathJax> using methods like protein language models <sup><a href="#fn1" id="fnref1">1</a>,<a href="#fn2" id="fnref2">2</a></sup>. This is not, however, true of <MathJax inline>{"\\(p(struct)\\)"}</MathJax>: the field has not arrived at  a way to calculate the reasonableness of a structure independent of its sequence.</p>
 
-        <p>In a recent preprint that combines molecular simulations with inverse folding and active learning, Brotzakis et al sidestep to the need to define <MathJax inline>{"\\(p(struct)\\)"}</MathJax> by reframing the problem as a design problem, where the goal is to maximize the reasonableness of a mutant (<MathJax inline>{"\\(p(seq_{mut})\\)"}</MathJax>) relative to that of the starting sequence (<MathJax inline>{"\\(p(seq_{wt})\\)"}</MathJax>) <sup><a href="#fn3" id="fnref3">3</a></sup>. They do this by rearranging the equation as follows:</p>
+        <p>In a recent preprint that combines molecular simulations with inverse folding and active learning, Brotzakis et al sidestep to the need to define <MathJax inline>{"\\(p(struct)\\)"}</MathJax> by reframing the problem as a design problem, where the goal is to maximize the reasonableness of a mutant <span style={{ whiteSpace: 'nowrap' }}>(<MathJax inline>{"\\(p(seq_{mut})\\)"}</MathJax>)</span> relative to that of the starting sequence <span style={{ whiteSpace: 'nowrap' }}>(<MathJax inline>{"\\(p(seq_{wt})\\)"}</MathJax>)</span> <sup><a href="#fn3" id="fnref3">3</a></sup>. They do this by rearranging the equation as follows:</p>
         
         <p style={{ textAlign: "center" }}>
           <MathJax>{"\\(p(struct|seq_{mut}) = p(struct|seq_{wt}) \\frac{p(seq_{mut}|struct)p(seq_{wt})}{p(seq_{wt}|struct)p(seq_{mut})}\\)"}</MathJax>        
