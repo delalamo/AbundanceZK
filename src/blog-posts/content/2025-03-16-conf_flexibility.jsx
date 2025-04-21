@@ -12,13 +12,13 @@ export const post = {
       {/* This paragraph seems redundant with the title/excerpt, consider removing */}
       <p>How much data from molecular dynamics simulations are needed to predict protein flexibility?</p> 
 
-      <p>The loadedness of the term "protein dynamics" complicates many attempts at figuring out what scientists want exactly when using modern AI/ML tools to predict protein structural heterogeneity. For the two to three years when AlphaFold2 and related methods were the state of the art, modeling dynamics mostly meant hacking these methods to yield some conformational heterogeneity<sup><a href="#fn1" id="fnref1">1</a></sup>. In the last year and a half or so, however, several high-quality neural networks have been released that tackle this problem more directly, at various levels of comprehensiveness: AlphaFlow<sup><a href="#fn2" id="fnref2">2</a></sup>, BioEmu<sup><a href="#fn3" id="fnref3">3</a></sup>, and Str2str<sup><a href="#fn4" id="fnref4">4</a></sup> being some examples.</p>
+      <p>The loadedness of the term "protein dynamics" complicates many attempts at figuring out what scientists want exactly when using modern AI/ML tools to predict protein structural heterogeneity. For the two to three years when AlphaFold2 and related methods were the state of the art, modeling dynamics mostly meant hacking these methods to yield some conformational heterogeneity<sup>[<a href="#fn1" id="fnref1">1</a>]</sup>. In the last year and a half or so, however, several high-quality neural networks have been released that tackle this problem more directly, at various levels of comprehensiveness: AlphaFlow<sup>[<a href="#fn2" id="fnref2">2</a>]</sup>, BioEmu<sup>[<a href="#fn3" id="fnref3">3</a>]</sup>, and Str2str<sup>[<a href="#fn4" id="fnref4">4</a>]</sup> being some examples.</p>
 
       {/* ... other paragraphs ... */}
 
       <p>In general it seems that two types of neural networks have emerged to fill this gap. The first learns from simulation data for individual proteins and attempts to, in effect, learn fundamental properties about those systems by interpolating them (example <a href="https://delalamo.xyz/post/2025-02-24-low-dim-md">here</a>). The second try to be more generalist, and learn from huge quantities of structural and MD data.</p>
 
-      <p>Earlier this week a preprint was released that attempts to do the second <sup><a href="#fn7" id="fnref7">7</a></sup>. The method, sAMt, uses a variational autoencoder and an input structure as a template to model proteins heterogeneity from sequence alone.</p>
+      <p>Earlier this week a preprint was released that attempts to do the second<sup>[<a href="#fn7" id="fnref7">7</a>]</sup>. The method, sAMt, uses a variational autoencoder and an input structure as a template to model proteins heterogeneity from sequence alone.</p>
 
       <img
         src="/assets/post_images/2025_03_14_A.png"
@@ -33,13 +33,13 @@ export const post = {
         }}
       />
 
-      <p>There are many things to like about this preprint - unlike the method I discussed before, it uses more modern neural network architectures such as the AlphaFold structure module<sup><a href="#fn8" id="fnref8">8</a></sup> and diffusion models, as well as the frame aligned point error loss function. But one thing stood out in this document that warrants further discussion:</p>
+      <p>There are many things to like about this preprint - unlike the method I discussed before, it uses more modern neural network architectures such as the AlphaFold structure module<sup>[<a href="#fn8" id="fnref8">8</a>]</sup> and diffusion models, as well as the frame aligned point error loss function. But one thing stood out in this document that warrants further discussion:</p>
 
       <blockquote>
       <p>"...free energy values from aSAMt were not in accurate quantitative agreement with the long MD results indicating that aSAMt learned the extent of conformational sampling covering a broad range of conformations but struggles in correctly reproducing relative probabilities between different states . This result may be expected, since the training data from mdCATH were simulations at most 500 ns long with few transitions between alternate states at a given temperature from which relative probabilities could have been learned..."</p>
       </blockquote>
 
-      <p>In contrast, the long MD simulations against which the conformers are compared last one or more milliseconds<sup><a href="#fn9" id="fnref9">9</a></sup>. That's approximately 2,000 longer than the training examples. Moreover, the modeled proteins were explicitly chosen for their ability to quickly fold and unfold, suggesting a degree of comprehensiveness in the simulations. In contrast, the proteins in mdCATH are simply short simulations of a cross-section of structural diversity<sup><a href="#fn10" id="fnref10">10</a></sup>.</p>
+      <p>In contrast, the long MD simulations against which the conformers are compared last one or more milliseconds<sup>[<a href="#fn9" id="fnref9">9</a>]</sup>. That's approximately 2,000 longer than the training examples. Moreover, the modeled proteins were explicitly chosen for their ability to quickly fold and unfold, suggesting a degree of comprehensiveness in the simulations. In contrast, the proteins in mdCATH are simply short simulations of a cross-section of structural diversity<sup>[<a href="#fn10" id="fnref10">10</a>]</sup>.</p>
 
       <p>This point has been raised in the past in verbal discussions on AlphaFlow. The motions captured in mdCATH are, in effect, Brownian motion, which is neither difficult nor interesting to predict. The value added by a neural network capable of predicting certain properties of protein dynamics would come from, at a minimum, a capacity to predict the weighted distribution of different conformations. Thus far, BioEmu is the closest to achieving this, although its accurate predictions are limited to conformational breadth and folded versus unfolded states. That said, there's no reason that further progress in this field will unlock this capability to learn from the short MD simulations we have available.</p>
 

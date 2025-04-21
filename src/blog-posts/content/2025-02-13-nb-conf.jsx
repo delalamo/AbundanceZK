@@ -13,7 +13,7 @@ export const post = {
       <p>Four years after the protein folding problem was allegedly solved, we still can't reliably predict how or where antibodies bind to their antigens. A recent report identifies one source of continued difficulty.</p>
 
       {/* Note: Interpreting [n] as footnote/reference markers */}
-      <p>Nanobodies are single-domain antibodies used as clinical therapeutics and experimental reagents for tasks such as bulking up protein structures for cryo-EM <sup><a href="#fn1" id="fnref1">1</a></sup>. Despite their smaller size, they share the same difficulties as traditional antibodies when it comes to structure prediction, namely the inability to reliably predict how and where they bind their targets, with success rates ranging in the 33-50% range <sup><a href="#fn2" id="fnref2">2</a>, <a href="#fn3" id="fnref3">3</a></sup>. A report published last week <sup><a href="#fn4" id="fnref4">4</a></sup> identifies a major determinant of whether the binding mode is correctly predicted: the "kink" or bend found in many CDR3 loops that is also found in most human antibodies <sup><a href="#fn5" id="fnref5">5</a></sup>. The recent structure prediction tool AlphaFold3 correctly docked nanobodies to their antigens nearly 80% of the time when the CDR3 conformation was extended, but barely 25% of the time when it was kinked.</p>
+      <p>Nanobodies are single-domain antibodies used as clinical therapeutics and experimental reagents for tasks such as bulking up protein structures for cryo-EM<sup>[<a href="#fn1" id="fnref1">1</a>]</sup>. Despite their smaller size, they share the same difficulties as traditional antibodies when it comes to structure prediction, namely the inability to reliably predict how and where they bind their targets, with success rates ranging in the 33-50% range<sup>[<a href="#fn2" id="fnref2">2</a>,<a href="#fn3" id="fnref3">3</a>]</sup>. A report published last week<sup>[<a href="#fn4" id="fnref4">4</a>]</sup> identifies a major determinant of whether the binding mode is correctly predicted: the "kink" or bend found in many CDR3 loops that is also found in most human antibodies<sup>[<a href="#fn5" id="fnref5">5</a>]</sup>. The recent structure prediction tool AlphaFold3 correctly docked nanobodies to their antigens nearly 80% of the time when the CDR3 conformation was extended, but barely 25% of the time when it was kinked.</p>
 
       {/* Image 1 with specific width and caption */}
       <p style={{ textAlign: 'center' }}>
@@ -24,9 +24,9 @@ export const post = {
             style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto', maxWidth: '100%' }}
          />
       </p>
-      <p style={{ textAlign: 'center', fontStyle: 'italic', fontSize: '0.9em' }}>
-        Figure from <sup><a href="#fn4" id="fnref4_fig1">4</a></sup>
-      </p>
+      <p style={{ textAlign: 'center', fontSize: '0.9em' }}>
+            <span style={{ fontStyle: 'italic' }}>Figure from </span><sup>[<a href="#fn4" id="fnref4_fig2">4</a>]</sup>
+        </p>
 
       <p>Fortunately, these models were effective at predicting whether the kink was there or not.</p>
 
@@ -39,12 +39,11 @@ export const post = {
             style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto', maxWidth: '100%' }}
          />
       </p>
-       {/* Caption also references [4] based on the source markdown */}
-       <p style={{ textAlign: 'center', fontStyle: 'italic', fontSize: '0.9em' }}>
-        Figure from <sup><a href="#fn4" id="fnref4_fig2">4</a></sup>
-      </p>
+        <p style={{ textAlign: 'center', fontSize: '0.9em' }}>
+            <span style={{ fontStyle: 'italic' }}>Figure from </span><sup>[<a href="#fn4" id="fnref4_fig2">4</a>]</sup>
+        </p>
 
-      <p>In any case, whether that observation extends to human paired antibodies, the structures of which are more difficult to predict<sup><a href="#fn6" id="fnref6">6</a></sup>, remains to be seen.</p>
+      <p>In any case, whether that observation extends to human paired antibodies, the structures of which are more difficult to predict<sup>[<a href="#fn6" id="fnref6">6</a>]</sup>, remains to be seen.</p>
 
       {/* Using 'footnotes' class for consistency, treating numbered list as refs */}
       <section className="footnotes">
