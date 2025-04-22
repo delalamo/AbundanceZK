@@ -1,6 +1,7 @@
 I'm a computational biologist and structural bioinformatician with fifteen years of research experience, including ten years in the wet lab. Currently I engineer and design biotherapeutics and protein reagents at GSK using a combination of classical modeling and machine learning tools. My background is in experimental and computational biophysics of membrane proteins (transporters), and I am personally interested in protein dynamics and evolution.
 
 Cell: Six one seven eight sixty-nine twenty-four twenty-five
+
 Email: diego dot delalamo at gmail dot com
 
 [Github](https://www.github.com/delalamo), [LinkedIn](https://www.linkedin.com/in/ddelalamo/), [Google Scholar](https://scholar.google.com/citations?user=uEf3WE4AAAAJ), [Bluesky](https://bsky.app/profile/ddelalamo.bsky.social)
