@@ -16,6 +16,9 @@ function Header() {
           <li>
             <Link to="/CV">CV</Link> {/* Link to about page */}
           </li>
+          <li>
+            <Link to="https://publish.obsidian.md/ddelalamo/Sorted_notes/Protein+structural+modeling+and+design+Zettelkasten">Notes</Link> {/* Link to about page */}
+          </li>
           {/* Add other navigation links here */}
         </ul>
       </nav>
