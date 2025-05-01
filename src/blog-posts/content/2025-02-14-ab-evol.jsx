@@ -1,6 +1,16 @@
-// Add useEffect and useRef imports
-import React, { useEffect, useRef } from 'react';
-// Import MathJax if needed by content (not used here)
+import React, { useRef } from 'react'; // Import useRef
+// Import MathJax if needed (not used here)
+// Import the hooks and component (adjust paths as needed)
+import { useInTextFootnoteNumbering } from '../../hooks/useInTextFootnoteNumbering';
+// Ensure this hook uses the simplified version checking only 'doi' key
+import { useCitationData } from '../../hooks/useCitationData';
+import { FootnoteList } from '../../components/FootnoteList';
+
+// Define config specific to this post
+const footnotesConfig = [
+    // DOI extracted from the original list item
+    { id: 'fn1', doi: '10.1073/pnas.2412787122' }, // Kirby et al.
+];
 
 export const post = {
   id: '2025-02-14-antibody-evolution-observations',
@@ -11,59 +21,22 @@ export const post = {
   content: (() => {
     // Component function to use hooks
     const ContentComponent = () => {
-      const contentRef = useRef(null); // Ref for the container
+      const contentRef = useRef(null);
 
-      useEffect(() => {
-        if (!contentRef.current) return;
-
-        const footnoteLinks = contentRef.current.querySelectorAll('.footnote-ref a');
-        const footnoteMap = {}; // Stores { href: number } mapping
-        let footnoteCounter = 0;
-
-        footnoteLinks.forEach(link => {
-          const href = link.getAttribute('href');
-          if (!href) return;
-
-          let number;
-          if (footnoteMap.hasOwnProperty(href)) {
-            // Reuse existing number
-            number = footnoteMap[href];
-          } else {
-            // Assign new number
-            footnoteCounter++;
-            number = footnoteCounter;
-            footnoteMap[href] = number;
-          }
-
-          // Inject the number as the link's text content
-          link.textContent = number;
-        });
-
-        // Optional: Update numbering on the list items themselves
-        const footnoteListItems = contentRef.current.querySelectorAll('.footnotes-list li');
-        footnoteListItems.forEach(item => {
-            const itemId = `#${item.getAttribute('id')}`; // Get the ID like #fn1
-            // Simple check to prevent adding number multiple times on potential re-renders/HMR
-            if (item.querySelector('.footnote-list-number')) return;
-
-            if (footnoteMap.hasOwnProperty(itemId)) {
-                const numberSpan = document.createElement('span');
-                numberSpan.className = 'footnote-list-number';
-                numberSpan.textContent = `${footnoteMap[itemId]}. `;
-                item.insertBefore(numberSpan, item.firstChild);
-            }
-        });
-
-      }, []); // Empty dependency array - run once on mount
+      // Use the custom hooks
+      const idToNumberMap = useInTextFootnoteNumbering(contentRef);
+      const { citationsData, isLoading, error } = useCitationData(footnotesConfig, { template: 'apa' }); // Using APA style
 
       return (
-        // Added ref to the container
+        // Add container div with ref
         <div className="content-container" ref={contentRef}>
+          {/* Main blog post JSX content goes here... */}
+          {/* Ensure <sup class="footnote-ref">[<a href="#fnX" id="fnrefX"></a>]</sup> structure is used */}
           <p>A recent study on anti-SARS-CoV-2 antibodies retraces the steps they take during affinity maturation.</p>
 
           <p>Antibodies evolve differently from most proteins. Instead of maintaining functions and/or interactions across different organisms, antibodies evolve specificity to targets of interest within organisms, in a Darwinian process called somatic hypermutation. During this process, they collect point mutations that increase their affinity to their target, with the end result being a slightly modified antibody sequence that binds with nanomolar or picomolar affinity and (usually) very high specificity.</p>
 
-          {/* Changed: Added footnote reference tag */}
+          {/* The footnote reference tag should already be correctly placed */}
           <p><a href="https://doi.org/10.1073/pnas.2412787122">Kirby et al</a><sup className="footnote-ref">[<a href="#fn1" id="fnref1"></a>]</sup> recently examined the evolutionary trajectories taken by fourteen high-affinity antibodies to see what the overall effect of each mutation was, relative to the germline precursor. Their results are quite interesting and are summarized as follows:</p>
 
           <ul>
@@ -75,15 +48,14 @@ export const post = {
 
           <p>Incidentally, this is the first time I used an LLM to find a paper - I asked Gemini to find a citation for the claim that germline antibodies can already have nanomolar binding affinity to their targets, and it replied with this paper.</p>
 
-          {/* Changed: Added classNames, modified list item structure */}
-          <section className="footnotes-section">
-            <hr />
-            <h2>Notes</h2>
-            <ol className="footnotes-list">
-              {/* Changed: Added id="fn1" and back-link */}
-              <li id="fn1">Kirby et al. <a href="https://doi.org/10.1073/pnas.2412787122">"Retrospective SARS-CoV-2 human antibody development trajectories are largely sparse and permissive"</a> PNAS 2025 <a href="#fnref1" title="Jump back to footnote 1 in the text">↩</a></li>
-            </ol>
-          </section>
+          {/* Render the reusable footnote list component */}
+          {/* The old <section> with hardcoded <ol> is removed */}
+          <FootnoteList
+            citationsData={citationsData}
+            idToNumberMap={idToNumberMap}
+            isLoading={isLoading}
+            error={error}
+          />
         </div> // Close content-container
       );
     };
