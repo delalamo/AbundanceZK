@@ -225,3 +225,92 @@ ul li {
 p {
   text-align: justify;
 }
+
+/* --- NO Counter Setup Needed --- */
+/* .content-container { counter-reset: footnote-counter; } /* REMOVED */
+
+.content-container {
+  /* Add other container styles if needed */
+  max-width: 800px;
+  margin: 2em auto;
+  line-height: 1.6;
+  font-family: sans-serif;
+}
+
+/* --- Footnote Reference Styling (in text) --- */
+.footnote-ref {
+  vertical-align: super;
+  font-size: 0.75em;
+  line-height: 1;
+  margin-left: 1px;
+  /* Brackets remain static text */
+}
+
+/* Style the link where the number is INJECTED by JS */
+.footnote-ref a {
+  /* Ensure number injected by JS is visible */
+  font-size: 1em; /* Inherit size from parent sup */
+  vertical-align: baseline; /* Align number with brackets */
+  text-decoration: none;
+  color: blue;
+  cursor: pointer;
+  padding: 0; /* No extra padding */
+}
+
+/* REMOVED ::before rule as JS injects number directly */
+/* .footnote-ref a::before { ... } */
+
+
+/* --- Footnotes List Styling --- */
+.footnotes-section {
+  margin-top: 3em;
+  padding-top: 1em;
+  border-top: 1px solid #ccc;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.footnotes-list {
+  /* Remove default browser list styling */
+  list-style: none;
+  padding-left: 0;
+}
+
+.footnotes-list li {
+  margin-bottom: 0.5em;
+  /* Indent items slightly to align with numbered list appearance */
+  padding-left: 2em;
+  position: relative; /* Needed for absolute positioning of number if desired */
+}
+
+/* Style the number injected by JS at the start of the list item */
+.footnote-list-number {
+  display: inline-block; /* Or block depending on layout */
+  font-weight: normal; /* Or bold if preferred */
+  /* Position number correctly */
+  position: absolute;
+  left: 0;
+  width: 1.8em; /* Adjust width as needed */
+  text-align: right; /* Align numbers neatly */
+  margin-right: 0.2em; /* Space between number and text */
+}
+
+
+/* Style the back-links */
+.footnotes-list li a[href^="#fnref"] {
+  text-decoration: none;
+  color: blue;
+  margin-left: 5px;
+}
+
+li:target {
+  background-color: #ffffe0;
+}
+
+/* --- Basic Text Styles (Example) --- */
+h1, h2 {
+  margin-bottom: 0.5em;
+}
+p {
+  margin-bottom: 1em;
+}
