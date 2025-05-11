@@ -24,7 +24,7 @@ const footnotesConfig = [
 
 export const post = {
   id: '2025-05-11-zk',
-  title: 'Week 19 updates',
+  title: '2025 week 19 updates',
   date: '2025-05-11',
   category: 'Zettelkasten updates',
   excerpt: 'RNA structure prediction, NMR structural ensembles, and protein language model scaling laws.',
@@ -67,6 +67,16 @@ export const post = {
           <h4>A deep dive into protein language model scaling laws</h4>
           <p>Dr Pascal Notin wrote a <a href="https://substack.com/home/post/p-163085988" target="_blank" rel="noopener noreferrer">fantastic summary</a> of how, <a href="https://www.theverge.com/2024/12/12/24318650/chatgpt-openai-history-two-year-anniversary" target="_blank" rel="noopener noreferrer">as has been pointed out in tech media for natural language LLMs</a>, protein language models don't benefit from scaling beyond a certain point, approximately three to four billion parameters. Instead, performance improvements arise from including alternate modalities, such as multiple sequence alignments (which inform function) and structure (which informs binding and stability). The observation of plateauing performance in the single-digit billion parameter range corresponds with estimates made by Zhang et al last year<sup className="footnote-ref">[<a href="#fn11" id="fnref11"></a>]</sup> based on the number of protein domains and their size, despite improved pre-training performance<sup className="footnote-ref">[<a href="#fn12" id="fnref12"></a>]</sup>. This angle of memorization is probably the most likely (and seems to explain why low-perplexity predictions from large protein language models tend to be less useful for variant effect prediction<sup className="footnote-ref">[<a href="#fn13" id="fnref13"></a>]</sup>). </p>
           
+          <div
+            className="substack-post-embed" // This is what Substack's script targets
+            style={{
+                margin: '2rem 0', // Adds vertical spacing. Default block behavior will make it take available width.
+                // Optional: If Substack's embed doesn't take full width by default but you want it to try:
+                width: '100%',
+                // maxWidth: '100%', // Ensures it doesn't overflow if its content is wider than container
+            }}
+            ><p lang="en">Have We Hit the Scaling Wall for Protein Language Models? by Pascal Notin</p><p>Beyond Scaling: What Truly Works in Protein Fitness Prediction</p><a data-post-link href="https://pascalnotin.substack.com/p/have-we-hit-the-scaling-wall-for">Read on Substack</a></div><script async src="https://substack.com/embedjs/embed.js" charset="utf-8"></script>
+
           <p>Despite the consensus here, I still don't have a satisfactory mental model for why structure prediction neural networks that use these larger language models are able to correctly predict the structures of <em>de novo</em> designed proteins. It isn't clear to me how well these are predicted if smaller language models are used instead.</p>
 
           <FootnoteList
