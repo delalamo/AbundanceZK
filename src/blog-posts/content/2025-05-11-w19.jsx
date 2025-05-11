@@ -1,11 +1,10 @@
-import React, { useRef } from 'react';
-// Import hooks and components
+import { useRef } from 'react';
+
 import { useInTextFootnoteNumbering } from '../../hooks/useInTextFootnoteNumbering';
 import { useCitationData } from '../../hooks/useCitationData';
 import { FootnoteList } from '../../components/FootnoteList';
-import MolstarViewer from '../../components/MolstarViewer'; // Corrected import
+import MolstarViewer from '../../components/MolstarViewer'; 
 
-// Define config specific to this post, using 'doi' key for all identifiers
 const footnotesConfig = [
     { id: 'fn1', doi: '10.1101/2025.04.30.651414' },
     { id: 'fn2', doi: '10.1101/2025.02.03.636309' },
@@ -16,7 +15,6 @@ const footnotesConfig = [
     { id: 'fn7', doi: '10.1126/science.1208351' },
     { id: 'fn8', doi: '10.1101/2024.12.05.626885' },
     { id: 'fn9', doi: '10.1101/2025.03.09.642148' },
-    { id: 'fn10', doi: 'https://substack.com/home/post/p-163085988' },
     { id: 'fn11', doi: '10.1073/pnas.2406285121' },
     { id: 'fn12', doi: '10.1101/2024.02.05.578959' },
     { id: 'fn13', doi: '10.1101/2024.10.03.616542' }
@@ -68,12 +66,10 @@ export const post = {
           <p>Dr Pascal Notin wrote a <a href="https://substack.com/home/post/p-163085988" target="_blank" rel="noopener noreferrer">fantastic summary</a> of how, <a href="https://www.theverge.com/2024/12/12/24318650/chatgpt-openai-history-two-year-anniversary" target="_blank" rel="noopener noreferrer">as has been pointed out in tech media for natural language LLMs</a>, protein language models don't benefit from scaling beyond a certain point, approximately three to four billion parameters. Instead, performance improvements arise from including alternate modalities, such as multiple sequence alignments (which inform function) and structure (which informs binding and stability). The observation of plateauing performance in the single-digit billion parameter range corresponds with estimates made by Zhang et al last year<sup className="footnote-ref">[<a href="#fn11" id="fnref11"></a>]</sup> based on the number of protein domains and their size, despite improved pre-training performance<sup className="footnote-ref">[<a href="#fn12" id="fnref12"></a>]</sup>. This angle of memorization is probably the most likely (and seems to explain why low-perplexity predictions from large protein language models tend to be less useful for variant effect prediction<sup className="footnote-ref">[<a href="#fn13" id="fnref13"></a>]</sup>). </p>
           
           <div
-            className="substack-post-embed" // This is what Substack's script targets
+            className="substack-post-embed"
             style={{
-                margin: '2rem 0', // Adds vertical spacing. Default block behavior will make it take available width.
-                // Optional: If Substack's embed doesn't take full width by default but you want it to try:
+                margin: '2rem 0',
                 width: '100%',
-                // maxWidth: '100%', // Ensures it doesn't overflow if its content is wider than container
             }}
             ><p lang="en">Have We Hit the Scaling Wall for Protein Language Models? by Pascal Notin</p><p>Beyond Scaling: What Truly Works in Protein Fitness Prediction</p><a data-post-link href="https://pascalnotin.substack.com/p/have-we-hit-the-scaling-wall-for">Read on Substack</a></div><script async src="https://substack.com/embedjs/embed.js" charset="utf-8"></script>
 
