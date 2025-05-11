@@ -12,7 +12,7 @@ export const post = {
   title: 'De novo prediction of protein structural dynamics',
   date: '2025-04-27',
   category: 'Bio/ML',
-  excerpt: 'An overview of the state of the art that I will present on 28 April 2025',
+  excerpt: 'An overview of the state of the art that I will present on 28 April 2025.',
   content: (() => {
     // Component function to use hooks
     const ContentComponent = () => {

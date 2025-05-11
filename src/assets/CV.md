@@ -82,6 +82,10 @@ Chemical and Physical Biology Program (Aug 2015 - Aug 2021)
 
 ## Preprints and Publications
 
+**2025**
+* "[Adapting ProteinMPNN for antibody design without retraining]()"
+    **del Alamo D**, Frick R, Truan D, Karpiak JD. *biorxiv*, May 2025
+
 **2024**
 * "[Artificial intelligence drives the digital transformation of pharma (Perspective)](https://www.sciencedirect.com/science/article/abs/pii/B9780443156885000498)"
     Harrer S, Menard J, Rivers M, Green DVS, Karpiak J, Jeliazko JR, Shapovalov MS, **del Alamo D**, Sternke MC. *Artificial Intelligence in Clinical Practice*, Jan 2024
