@@ -32,7 +32,7 @@ Email: diego dot delalamo at gmail dot com
 
 ## Work and Research Experience
 ### GSK (Baar, ZG, Switzerland)
-**Investigator - Protein Design & Informatics (May 2022 - Present)**
+**Principal Scientist - Protein Design & Informatics (May 2022 - Present)**
 
 *My primary responsibilities involve the rational design and multi-parameter optimization of antibodies and other proteins using a combination of sequence- and structure-based modeling tools. As part of this role I interface with experimental groups to build upon previous-round datasets under both data-poor and data-rich conditions*
 * Antibody engineering: applying a combination of physics-based methods (**Schrödinger FEP**, **Rosetta**), fine-tuned predictive models (developed using **PyTorch** and **SciKit-Learn**), and AI/ML tools (such as **ESM**, **ProteinMPNN**, **ProGen**, and others) for various engineering challenges such as de-risking of immunogenicity, solubility, specificity, thermostability, expression, and patent infringement
