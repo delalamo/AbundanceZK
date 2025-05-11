@@ -23,9 +23,9 @@ const footnotesConfig = [
 ];
 
 export const post = {
-  id: '2025-05-10-zk',
+  id: '2025-05-11-zk',
   title: 'Week 19 updates',
-  date: '2025-05-10',
+  date: '2025-05-11',
   category: 'Zettelkasten updates',
   excerpt: 'RNA structure prediction, NMR structural ensembles, and protein language model scaling laws.',
   content: (() => {

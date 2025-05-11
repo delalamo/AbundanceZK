@@ -1,31 +1,40 @@
 // src/pages/HomePage.jsx
-import React, { useState, useMemo } from 'react'; // Import useState and useMemo
+import React, { useState, useMemo } from 'react';
 import BlogPostPreview from '../components/BlogPostPreview';
-import { posts } from '../blog-posts/posts'; // Import the sample post data
+import { posts } from '../blog-posts/posts';
 
 function HomePage() {
-  // State to hold the currently selected category filter
-  const [selectedCategory, setSelectedCategory] = useState('All'); // Default to 'All'
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
-  // Get unique categories from the posts using useMemo to avoid recalculating on every render
   const categories = useMemo(() => {
-    const allCategories = posts.map((post) => post.category).filter(Boolean); // Get all categories, remove undefined/null
-    return ['All', ...new Set(allCategories)]; // Add 'All' and ensure uniqueness
-  }, []); // Empty dependency array means this runs only once
+    // 1. Get all defined categories from the posts
+    const allDefinedCategories = posts
+      .map((post) => post.category)
+      .filter(Boolean); // filter(Boolean) removes any null, undefined, or empty strings
 
-  // Filter posts based on the selected category
+    // 2. Get unique categories from this list
+    const uniqueCategories = [...new Set(allDefinedCategories)];
+
+    // 3. Sort the unique categories alphabetically
+    //    localeCompare is good for robust string sorting (handles various characters, though for simple English categories .sort() often works too)
+    uniqueCategories.sort((a, b) => a.localeCompare(b));
+
+    // 4. Prepend 'All' to the now sorted list of unique categories
+    return ['All', ...uniqueCategories];
+  }, []); // The empty dependency array [] means this runs once when the component mounts,
+           // which is fine because 'posts' is imported statically.
+
   const filteredPosts = useMemo(() => {
     if (selectedCategory === 'All') {
-      return posts; // Show all posts if 'All' is selected
+      return posts;
     }
     return posts.filter((post) => post.category === selectedCategory);
-  }, [selectedCategory]); // Recalculate only when selectedCategory changes
+  }, [selectedCategory]); // Only re-filter when selectedCategory changes
 
   return (
     <div>
       <h1>Blog Posts</h1>
 
-      {/* Category Filter Buttons */}
       <div
         className="category-filters"
         style={{
@@ -41,7 +50,6 @@ function HomePage() {
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            // Add styling for the active button
             style={{
               padding: '0.4rem 0.8rem',
               cursor: 'pointer',
@@ -51,7 +59,7 @@ function HomePage() {
                   ? '2px solid steelblue'
                   : '1px solid #ccc',
               backgroundColor:
-                selectedCategory === category ? '#e0efff' : 'white', // Highlight active
+                selectedCategory === category ? '#e0efff' : 'white',
               fontWeight: selectedCategory === category ? 'bold' : 'normal',
             }}
           >
@@ -60,15 +68,14 @@ function HomePage() {
         ))}
       </div>
 
-      {/* Display Filtered Posts */}
       {filteredPosts.length > 0 ? (
         filteredPosts.map((post) => (
           <BlogPostPreview key={post.id} post={post} />
         ))
       ) : (
-        <p>No posts found in the "{selectedCategory}" category!</p> // Message if no posts match filter
+        <p>No posts found in the "{selectedCategory}" category!</p>
       )}
-    <p><em>This site has been entirely built by vibe coding with Gemini 2.5 Pro</em></p>
+      <p style={{marginTop: '3rem', fontSize: '0.8em', color: '#777'}}><em>This site has been entirely built by vibe coding with Gemini Pro.</em></p>
     </div>
   );
 }
