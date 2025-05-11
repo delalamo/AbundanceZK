@@ -12,4 +12,5 @@ export default defineConfig({
       input: '/index.html', // Ensure index.html is the entry point
     },
   },
+  publicDir: 'public',
 });
