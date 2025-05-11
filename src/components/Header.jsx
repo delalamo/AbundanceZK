@@ -6,7 +6,7 @@ function Header() {
   return (
     <header>
       <h1>
-        <Link to="/">DDA</Link> {/* Link to homepage */}
+        <Link to="/">Diego del Alamo's personal site</Link> {/* Link to homepage */}
       </h1>
       <nav>
         <ul>
