@@ -59,7 +59,7 @@ export const post = {
             options={nmrViewerOptions}
           />
           <p style={{ textAlign: 'center', fontStyle: 'italic', fontSize: '0.9em' }}>
-            NMR structure of PDB ID 1X1M displayed using Molstar.
+            NMR structure of Ubiquitin (PDB: 1X1M)
           </p>
 
           <p>This came up because the team developing the protein folding neural network OpenComplex2<sup className="footnote-ref">[<a href="#fn5" id="fnref5"></a>]</sup> treat these ensembles of independently generated models as a thermodynamic ensemble reflecting the equilibrium dynamics of proteins in solution. They do not<sup className="footnote-ref">[<a href="#fn6" id="fnref6"></a>]</sup>, and there's no link between being able to reproduce these movements are learning the underlying forces driving protein dynamics. It seems that the most optimal test set is the nearly fifteen-year-old set of fast-folding proteins from D.E. Shaw<sup className="footnote-ref">[<a href="#fn7" id="fnref7"></a>]</sup>, which likely covers the full conformational landscape of these proteins, and has been used by the authors of BioEmu<sup className="footnote-ref">[<a href="#fn8" id="fnref8"></a>]</sup>, aSAMt<sup className="footnote-ref">[<a href="#fn9" id="fnref9"></a>]</sup>, and probably others.</p>
