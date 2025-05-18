@@ -61,7 +61,7 @@ export const post = {
 
           <h4>Directed evolution can uncover active sequences that might be missed by machine learning-based sequence design</h4>
 
-          <p>In the same paper, the authors discover an interesting mid-helical proline using directed evolution. Structure-based machine learning methods are very opinionated about prolines, and don't tend to add them where they don't already exist. Here's the confusion matrix for ESM-IF alongside the BLOSUM62 substitution matrix: proline is the clear outlier, likely due to its unique Ramachandran profile<sup className="footnote-ref">[<a href="#fn2" id="fnref2"></a>]</sup>.</p>
+          <p>In the same paper, the authors discover an interesting mid-helical alanine-to-proline mutation that improved catalytic activity using directed evolution. The prior steps in their pipeline involved structure-based sequence design, and these methods tend to be very opinionated about prolines (i.e., don't tend to add them where they don't already exist). Here's the confusion matrix for ESM-IF alongside the BLOSUM62 substitution matrix: proline is the clear outlier, likely due to its unique Ramachandran profile<sup className="footnote-ref">[<a href="#fn2" id="fnref2"></a>]</sup>.</p>
 
           <img src="https://www.biorxiv.org/content/biorxiv/early/2022/04/10/2022.04.10.487779/F13.large.jpg" alt="Machine learning models learn substitution matrics for all amino acids besides proline." width="700" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto' }} />
 
@@ -72,6 +72,8 @@ export const post = {
           <p>...and one more from the authors of Frame2Seq<sup className="footnote-ref">[<a href="#fn4" id="fnref4"></a>]</sup>, showing how proline sticks out in UMAP projections of residue embeddings</p>:
 
           <img src="/assets/post_images/2025_05_18/2025_05_18_C.png" alt="Proline sticks out in UMAP projections of inverse folding embeddings." width="700" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto' }} />
+        
+          <p>It's just one more example of how one-shot ML-based sequence design complements, rather than replaces, more laborious laboratory evolution techniques.</p>
 
           <h4>Antibody structure prediction methods probably memorize CDRH3 conformations</h4>
 
