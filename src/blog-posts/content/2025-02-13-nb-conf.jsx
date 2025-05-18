@@ -40,7 +40,7 @@ export const post = {
           <p>Nanobodies are single-domain antibodies used as clinical therapeutics and experimental reagents for tasks such as bulking up protein structures for cryo-EM<sup className="footnote-ref">[<a href="#fn1" id="fnref1"></a>]</sup>. Despite their smaller size, they share the same difficulties as traditional antibodies when it comes to structure prediction, namely the inability to reliably predict how and where they bind their targets, with success rates ranging in the 33-50% range<sup className="footnote-ref">[<a href="#fn2" id="fnref2"></a>,<a href="#fn3" id="fnref3"></a>]</sup>. A report published last week<sup className="footnote-ref">[<a href="#fn4" id="fnref4"></a>]</sup> identifies a major determinant of whether the binding mode is correctly predicted: the "kink" or bend found in many CDR3 loops that is also found in most human antibodies<sup className="footnote-ref">[<a href="#fn5" id="fnref5"></a>]</sup>. The recent structure prediction tool AlphaFold3 correctly docked nanobodies to their antigens nearly 80% of the time when the CDR3 conformation was extended, but barely 25% of the time when it was kinked.</p>
 
           <p style={{ textAlign: 'center' }}>
-            <img src="/assets/post_images/2025_02_09_A.png" alt="Kinked CDR3 loops are more difficult to predict than extended loops" width="600" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto', maxWidth: '100%' }} />
+            <img src="/assets/post_images/2025_02_09/2025_02_09_A.png" alt="Kinked CDR3 loops are more difficult to predict than extended loops" width="600" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto', maxWidth: '100%' }} />
           </p>
           <p style={{ textAlign: 'center', fontSize: '0.9em' }}>
                 <span style={{ fontStyle: 'italic' }}>Figure from </span><sup className="footnote-ref">[<a href="#fn4" id="fnref4_fig1"></a>]</sup>
@@ -49,7 +49,7 @@ export const post = {
           <p>Fortunately, these models were effective at predicting whether the kink was there or not.</p>
 
            <p style={{ textAlign: 'center' }}>
-            <img src="/assets/post_images/2025_02_09_B.png" alt="CDR3 conformation is mostly correctly predicted by AlphaFold2 and AlphaFold3" width="400" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto', maxWidth: '100%' }}/>
+            <img src="/assets/post_images/2025_02_09/2025_02_09_B.png" alt="CDR3 conformation is mostly correctly predicted by AlphaFold2 and AlphaFold3" width="400" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto', maxWidth: '100%' }}/>
           </p>
             <p style={{ textAlign: 'center', fontSize: '0.9em' }}>
                 <span style={{ fontStyle: 'italic' }}>Figure from </span><sup className="footnote-ref">[<a href="#fn4" id="fnref4_fig2"></a>]</sup>

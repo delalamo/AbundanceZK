@@ -48,7 +48,7 @@ export const post = {
 
           <p>Earlier this week a preprint was released that attempts to do the second<sup className="footnote-ref">[<a href="#fn7" id="fnref7"></a>]</sup>. The method, sAMt, uses a variational autoencoder and an input structure as a template to model proteins heterogeneity from sequence alone.</p>
 
-          <img src="/assets/post_images/2025_03_14_A.png" alt="Overview of the network from Janson et al" width="700" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto' }} />
+          <img src="/assets/post_images/2025_03_14/2025_03_14_A.png" alt="Overview of the network from Janson et al" width="700" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto' }} />
 
           <p>There are many things to like about this preprint - unlike the method I discussed before, it uses more modern neural network architectures such as the AlphaFold structure module<sup className="footnote-ref">[<a href="#fn8" id="fnref8"></a>]</sup> and diffusion models, as well as the frame aligned point error loss function. But one thing stood out in this document that warrants further discussion:</p>
 
