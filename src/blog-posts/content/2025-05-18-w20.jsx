@@ -49,7 +49,7 @@ export const post = {
           <h4>Inverse folding NNs are better predictors of equilibrium dynamics than protein folding NNs</h4>
           <p>Two preprints were released that began to hint at the limits of recent protein ensemble prediction methods. First, Cavanagh et al show that they aren't able to accurately model sequence-induced changes in a protein's equilibrium dynamics, meaning what proportion of the ensemble is in one state vs another<sup className="footnote-ref">[<a href="#fn0" id="fnref0"></a>]</sup>. Instead, they found that a suite of inverse folding methods - ProteinMPNN<sup className="footnote-ref">[<a href="#fn1" id="fnref1"></a>]</sup>, ESM-IF<sup className="footnote-ref">[<a href="#fn2" id="fnref2"></a>]</sup>, ThermoMPNN<sup className="footnote-ref">[<a href="#fn3" id="fnref3"></a>]</sup>, and Frame2Seq<sup className="footnote-ref">[<a href="#fn4" id="fnref4"></a>]</sup> - were better able to predict when mutations destabilize one state more than another.</p>
 
-          <img src="/assets/post_images/2025_05_18/2025_05_18_A.png" alt="BioEmu prediction of equilibrium dynamics." width="400" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto' }} />
+          <img src="/assets/post_images/2025_05_18/2025_05_18_A.png" alt="BioEmu prediction of equilibrium dynamics." width="500" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto' }} />
 
           <h4>Protein conformational sampling and ranking does not lead to greater success in finding models for protein-protein docking</h4>
 
@@ -63,7 +63,7 @@ export const post = {
 
           <p>In the same paper, the authors discover an interesting mid-helical proline using directed evolution. Structure-based machine learning methods are very opinionated about prolines, and don't tend to add them where they don't already exist. Here's the confusion matrix for ESM-IF alongside the BLOSUM62 substitution matrix: proline is the clear outlier, likely due to its unique Ramachandran profile<sup className="footnote-ref">[<a href="#fn2" id="fnref2"></a>]</sup>.</p>
 
-          <img src="https://www.biorxiv.org/content/biorxiv/early/2022/04/10/2022.04.10.487779/F13.large.jpg" alt="Machine learning models learn substitution matrics for all amino acids besides proline." width="600" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto' }} />
+          <img src="https://www.biorxiv.org/content/biorxiv/early/2022/04/10/2022.04.10.487779/F13.large.jpg" alt="Machine learning models learn substitution matrics for all amino acids besides proline." width="700" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', height: 'auto' }} />
 
           <p>...and here's the substitution matrix from Castorina et al<sup className="footnote-ref">[<a href="#fn10" id="fnref10"></a>]</sup></p>:
 
