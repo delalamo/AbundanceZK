@@ -44,7 +44,7 @@ export const post = {
 
       return (
         <div className="content-container" ref={contentRef}>
-          <p><i>This post includes updates from various papers and preprints that have been released this week. This post aims to extract some key points rather than summarize them in their entirety.</i></p>
+          <p><i>This post includes updates from various papers and preprints that have been released this week, and aims to extract some key points rather than summarize them in their entirety.</i></p>
           
           <h4>Inverse folding NNs are better predictors of equilibrium dynamics than protein folding NNs</h4>
           <p>Two preprints were released that began to hint at the limits of recent protein ensemble prediction methods. First, Cavanagh et al show that they aren't able to accurately model sequence-induced changes in a protein's equilibrium dynamics, meaning what proportion of the ensemble is in one state vs another<sup className="footnote-ref">[<a href="#fn0" id="fnref0"></a>]</sup>. Instead, they found that a suite of inverse folding methods - ProteinMPNN<sup className="footnote-ref">[<a href="#fn1" id="fnref1"></a>]</sup>, ESM-IF<sup className="footnote-ref">[<a href="#fn2" id="fnref2"></a>]</sup>, ThermoMPNN<sup className="footnote-ref">[<a href="#fn3" id="fnref3"></a>]</sup>, and Frame2Seq<sup className="footnote-ref">[<a href="#fn4" id="fnref4"></a>]</sup> - were better able to predict when mutations destabilize one state more than another.</p>
